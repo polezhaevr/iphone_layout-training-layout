@@ -90,6 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const modal = document.querySelector('.modal');
             const modalClose = document.querySelector('.modal__close')
 
+            const escapeHandler = event => {
+                  if (event.code === 'Escape') {
+                        modal.classList.remove('open');
+                   };
+            };
+
             cardDetailsButtonBuyElem.addEventListener('click', () => {
                   modal.classList.add('open');
             })
@@ -103,9 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.addEventListener ('click', (closeEv) =>  {
                   const target = closeEv.target; 
                   target.classList.remove('open');
-            } )
+            })
 
-            
+            document.addEventListener('keydown', event => {
+                   if (event.code === 'Escape') {
+                        modal.classList.remove('open');
+                   };
+            })
 
 
       };
